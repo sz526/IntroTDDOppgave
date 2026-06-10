@@ -19,19 +19,23 @@ public class Calculator
     du går videre med å kode metoden. */
     public int Multiply(int a, int b)
     {
-        throw new NotImplementedException();
+        return a * b;
     }
 
     public int Divide(int a, int b)
     {
-        throw new NotImplementedException();
+        if (b == 0)
+        {
+            throw new DivideByZeroException("Kan ikke dele på null.");
+        }
+        return a / b;
     }
-
     /* Oppgave 3: Finn feilen ved hjelp av unit tester.
        Koden fungerer for noen tall, men har en skjult logisk feil. */
     public int Add2(int a, int b)
     {
-        return Math.Abs(a) + b; 
+       // return Math.Abs(a) + b; 
+       return a + b;
     }
 
 
@@ -39,6 +43,7 @@ public class Calculator
        Krav: Metoden skal returnere true for partall, og false for oddetall. */
     public bool IsEven(int num)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        return num % 2 == 0;
     }
 }

@@ -64,14 +64,17 @@ public class CalculatorTests
     public void Add_WithMultipleInputs_ReturnsExpectedResult(int a, int b, int expected)
     {
         // Arrange
+        var calculator = new Calculator();
 
         // Act
+        var result = calculator.Add(a, b);
 
         // Assert
+        Assert.Equal(expected, result);
 
     /* Midlertidig linje for å unngå rød streker før du har skrevet koden.
         Denne linjen skal slettes etter du har implementert testen: */
-        throw new System.NotImplementedException($"Bruk {a}, {b} og {expected} til å lage testen.");
+        //throw new System.NotImplementedException($"Bruk {a}, {b} og {expected} til å lage testen.");
     }
 
     /* Oppgave 3: Finn feilen!
@@ -92,15 +95,19 @@ public class CalculatorTests
         Assert.Equal(9, result);
     }
 
+
+
     [Fact]
-    public void Add2_x_ReturnsCorrectSum()
+    public void Add2_NegativeFirstNumber_ReturnsCorrectSum()
     {
         // Arrange:
         var calculator = new Calculator();
 
-        // Act:
+        // Act: Kjører med negativt tall. Siden koden hadde feil, ville -4 + 5 bli 9 i stedet for 1.
+        var result = calculator.Add2(-4, 5);
 
-        // Assert:
+        // Assert: Det forventede resultatet skal være 1
+        Assert.Equal(1, result);
     }
 
     /* Bonus oppgave: Skriv alle tester du mener trengs for å utvikle IsEven-metoden.
@@ -111,7 +118,53 @@ public class CalculatorTests
     [Fact]
     public void IsEven_PositiveEvenNumber_ReturnsTrue()
     {
-        // Skriv første test her
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.IsEven(4);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void IsEven_PositiveOddNumber_ReturnsFalse()
+    {
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.IsEven(7);
+
+        // Assert
+        Assert.False(result);
+    }
+
+    [Fact]
+    public void IsEven_NegativeEvenNumber_ReturnsTrue()
+    {
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.IsEven(-6);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Fact]
+    public void IsEven_Zero_ReturnsTrue()
+    {
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.IsEven(0);
+
+        // Assert
+        Assert.True(result);
     }
 }
 
