@@ -29,29 +29,31 @@ public class CalculatorTests
     public void Multiply_TwoNumbers_ReturnsCorrectProduct()
     {
         // Arrange
-
+        var calc = new Calculator();
         // Act
-
+        var result = calc.Multiply(3,4);
         // Assert
+        Assert.Equal(12,result);
     }
 
     [Fact]
     public void Divide_TwoNumbers_ReturnsCorrectQuotient()
     {
         // Arrange
-
+        var calc = new Calculator();
         // Act
-
+        var result = calc.Divide(5,2);
         // Assert
+        Assert.Equal(2.5,result);
     }
 
     [Fact]
-    public void Divide_ByZero_ThrowsDivideByZeroException()
+    public void Divide_ByZero_ThrowsException()
     {
         // Arrange
-
-        // Act + Assert
-        // Hint: Bruk Assert.Throws<DivideByZeroException>("en melding")
+        var calc = new Calculator();
+        // Act & Assert
+        Assert.Throws<DivideByZeroException>(() => calc.Divide(5,0));
     }
 
     /* Oppgave 2: Trening i å bruke Theory. 
